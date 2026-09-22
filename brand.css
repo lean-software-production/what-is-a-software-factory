@@ -1,0 +1,632 @@
+/* ------------------------------------------------------------------
+   Lean Software Production, reveal.js brand theme.
+
+   Tokens are copied from website/assets/css/tokens/ so the deck is a
+   portable folder. If the tokens move, re-copy them.
+
+   House rule: no kicker/eyebrow lines above headings. There is no class
+   for one here on purpose. If a slide seems to need a label above its
+   title, the title is wrong.
+   ------------------------------------------------------------------ */
+
+/* Use system fallbacks so this deck renders when opened locally or offline. */
+
+:root {
+  --font-display: "Spectral", Georgia, "Times New Roman", serif;
+  --font-core: "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --paper: #F4F5F3; --paper-warm: #FAF8F5; --white: #FFFFFF;
+  --stone-100: #EFEDE9; --stone-200: #E2DFDA; --stone-300: #CBC7C0;
+  --stone-400: #A6A29B; --stone-500: #7D7A73; --stone-600: #5C5A55;
+  --stone-700: #403F3B; --stone-800: #2A2A27; --stone-900: #161614;
+
+  --slate-50: #EEF2F6; --slate-100: #D8E2EC; --slate-200: #B0C2D4;
+  --slate-300: #7F9BB6; --slate-400: #55789A; --slate-500: #3A5A78;
+  --slate-600: #2E4860; --slate-700: #24384A; --slate-800: #1B2A38;
+  --slate-900: #121C26;
+
+  --clay-100: #F6E7DE; --clay-200: #EDD0BF; --clay-300: #E2B39A;
+  --clay-400: #D19571; --clay-500: #C1774F; --clay-600: #A5623D;
+
+  --moss-100: #E4EBE2; --moss-500: #4A6B4E; --moss-700: #354E38;
+  --rust-100: #F6E2DE; --rust-500: #A33A2E;
+
+  --grid-line: rgba(22, 22, 20, .06);
+}
+
+/* ---------- base -------------------------------------------------- */
+
+.reveal-viewport { background: var(--paper); }
+
+.reveal {
+  font-family: var(--font-core);
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--stone-900);
+  letter-spacing: -0.006em;
+}
+
+.reveal .slides { text-align: left; z-index: 1; }
+
+/* faint engineering grid, the one piece of decoration */
+.reveal-viewport::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  z-index: 0;
+}
+
+/* ---------- type -------------------------------------------------- */
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  line-height: 1.06;
+  text-transform: none;
+  margin: 0 0 0.5em;
+  color: var(--stone-900);
+}
+
+.reveal h1 { font-size: 2.05em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal h3 { font-size: 1.3em; }
+
+.reveal h1 em, .reveal h2 em, .reveal h3 em {
+  font-style: italic;
+  color: var(--slate-500);
+}
+
+.reveal p { margin: 0 0 0.7em; line-height: 1.5; }
+
+.deck {
+  font-size: 0.7em;
+  line-height: 1.5;
+  color: var(--stone-600);
+  max-width: 23em;
+}
+
+/* ---------- who we are -------------------------------------------- */
+
+.people-list { display: grid; grid-template-columns: repeat(2, minmax(0, 14em)); gap: 2.25em; margin-top: 0.8em; }
+
+.people-list .person {
+  display: grid;
+  grid-template-columns: 4.4em minmax(0, 1fr);
+  gap: 0.8em;
+  align-items: start;
+  min-width: 0;
+}
+
+.people-list .person > div { min-width: 0; }
+
+.people-list .avatar {
+  width: 4.4em;
+  height: 4.4em;
+  object-fit: cover;
+  border: 2px solid var(--slate-300);
+  border-radius: 50%;
+  background: var(--slate-100);
+}
+
+.people-list .person-name {
+  font-family: var(--font-display);
+  font-size: 0.82em;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--stone-900);
+  margin: 0 0 0.18em !important;
+}
+
+.people-list .person-role {
+  font: 600 0.4em/1.4 var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate-600);
+  margin-bottom: 0.6em !important;
+}
+
+.people-list .person-bio { font-size: 0.48em; line-height: 1.45; color: var(--stone-700); overflow-wrap: anywhere; }
+
+section[data-state="people"] .training-callout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7em;
+  gap: 1.2em;
+  align-items: center;
+  max-width: 36em;
+  margin-top: 2.2em !important;
+  padding: 0.9em 1.1em;
+  border: 1px solid var(--clay-300);
+  border-left: 3px solid var(--clay-500);
+  background: var(--paper-warm);
+  font-size: 0.52em;
+  line-height: 1.5;
+  color: var(--stone-700);
+}
+
+section[data-state="people"] .course-copy { min-width: 0; }
+section[data-state="people"] .training-callout strong { color: var(--stone-900); }
+section[data-state="people"] .training-callout a { color: var(--slate-600); font-weight: 600; }
+section[data-state="people"] .course-qr {
+  display: block;
+  width: 7em;
+  padding: 0.22em;
+  border: 1px solid var(--stone-300);
+  background: var(--white);
+}
+section[data-state="people"] .course-qr img { display: block; width: 100%; height: auto; }
+
+.byline {
+  font: 500 0.44em/1.6 var(--font-mono);
+  color: var(--stone-500);
+  margin-top: 2.2em !important;
+}
+
+.gloss {
+  font-size: 0.7em;
+  line-height: 1.55;
+  color: var(--stone-700);
+  max-width: 27em;
+}
+
+.gloss em { font-style: normal; font-weight: 600; color: var(--slate-600); }
+
+.footnote {
+  font-size: 0.5em;
+  line-height: 1.55;
+  color: var(--stone-500);
+  max-width: 34em;
+  border-left: 2px solid var(--stone-300);
+  padding-left: 1em;
+  margin-top: 1.4em !important;
+}
+
+.footnote em { font-style: normal; font-weight: 600; color: var(--stone-700); }
+.footnote a { color: var(--slate-600); font-weight: 600; }
+.build-your-own {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  margin-top: 0.8em;
+}
+.build-your-own p {
+  margin: 0 !important;
+  color: var(--stone-600);
+  font-size: 0.58em;
+}
+.build-your-own-qr {
+  width: 3.8em;
+  padding: 0.16em;
+  border: 1px solid var(--stone-300);
+  background: var(--white);
+}
+.build-your-own-qr img { display: block; width: 100%; height: auto; }
+
+.cite {
+  display: block;
+  margin-top: 0.7em;
+  font: 400 0.82em/1.4 var(--font-mono);
+  color: var(--stone-400);
+}
+
+.punch {
+  font-family: var(--font-display);
+  font-size: 0.86em;
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.014em;
+  color: var(--stone-900);
+  margin-top: 1em !important;
+  max-width: 22em;
+}
+
+/* ---------- cover ------------------------------------------------- */
+
+section[data-state="cover"] h1 { max-width: 12em; }
+
+/* ---------- run sheet --------------------------------------------- */
+
+.runsheet { list-style: none; margin: 0; padding: 0; }
+
+.runsheet li {
+  display: grid;
+  grid-template-columns: 5.5em 3.5em 1fr;
+  align-items: baseline;
+  gap: 1em;
+  font-size: 0.7em;
+  padding: 0.62em 0;
+  border-bottom: 1px solid var(--stone-200);
+  color: var(--stone-700);
+}
+
+.runsheet li:last-child {
+  border-bottom: none;
+  color: var(--stone-900);
+  font-weight: 500;
+}
+
+.runsheet .t {
+  font: 400 0.72em/1 var(--font-mono);
+  color: var(--stone-400);
+}
+
+.runsheet .w {
+  font: 600 0.8em/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--clay-600);
+}
+
+.runsheet li:nth-child(2) .w,
+.runsheet li:nth-child(3) .w { color: var(--slate-500); }
+
+/* ---------- the ask slide ----------------------------------------- */
+
+section[data-state="ask"] { background: var(--paper-warm); }
+.reveal h2.ask { font-size: 1.9em; max-width: 12em; }
+
+/* ---------- two bounded contexts ---------------------------------- */
+
+.two-contexts { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4em; margin-top: 0.4em; }
+
+.ctx {
+  border-top: 3px solid var(--stone-300);
+  padding-top: 0.9em;
+}
+
+.ctx-ours { border-top-color: var(--slate-500); }
+
+.ctx-head {
+  font: 600 0.46em/1.2 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--stone-500);
+  margin-bottom: 0.9em !important;
+}
+
+.ctx-ours .ctx-head { color: var(--slate-600); }
+
+.ctx-body { font-size: 0.6em; line-height: 1.5; color: var(--stone-700); }
+
+.ctx-verdict {
+  font-family: var(--font-display);
+  font-size: 0.68em;
+  font-weight: 600;
+  color: var(--stone-900);
+  margin-top: 0.8em !important;
+}
+
+.ctx-ours .ctx-verdict { color: var(--slate-600); }
+
+/* ---------- the build slides -------------------------------------- */
+
+.reveal h3.build-head {
+  font-size: 1.2em;
+  margin: 0 0 0.4em;
+  color: var(--slate-600);
+}
+
+.stack-slot { margin: 0 0 0.7em; }
+
+.stack-svg { display: block; width: 100%; height: auto; max-height: 46vh; }
+
+.build-gloss {
+  font-size: 0.56em;
+  line-height: 1.5;
+  color: var(--stone-800);
+  max-width: 40em;
+  margin-bottom: 0.35em;
+}
+
+.build-gloss em { font-style: normal; font-weight: 600; color: var(--slate-600); }
+
+.build-note {
+  font-size: 0.48em;
+  line-height: 1.5;
+  color: var(--stone-500);
+  max-width: 42em;
+}
+
+/* ---------- diagram parts ----------------------------------------- */
+
+.stack-svg .part, .simple-svg { transition: opacity .35s ease; }
+
+.stack-svg marker path { fill: var(--stone-400); }
+
+.r-factory { fill: var(--slate-50); stroke: var(--slate-500); stroke-width: 2; }
+.r-orch    { fill: var(--paper-warm); stroke: var(--clay-400); stroke-width: 1.5; }
+.r-line    { fill: var(--white); stroke: var(--stone-300); stroke-width: 1.5; }
+.r-human   { fill: var(--white); stroke: var(--slate-400); stroke-width: 1.5; stroke-dasharray: 5 4; }
+
+.tier-name {
+  font: 700 13px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  fill: var(--stone-500);
+}
+
+.factory-name { fill: var(--slate-600); }
+.orch-name    { fill: var(--clay-600); }
+.human-name   { fill: var(--slate-500); font-size: 11px; }
+
+.box { fill: var(--white); stroke: var(--slate-500); stroke-width: 1.5; }
+.box.doer      { fill: var(--clay-100); stroke: var(--clay-500); }
+.box.validator { fill: var(--moss-100); stroke: var(--moss-500); }
+
+.box-label {
+  font: 500 17px/1 var(--font-mono);
+  fill: var(--slate-700);
+  text-anchor: middle;
+}
+
+.p-doer .box-label      { fill: var(--clay-600); }
+.p-validator .box-label { fill: var(--moss-700); }
+
+.vendor-logo {
+  filter: brightness(0);
+  opacity: 0.72;
+}
+
+.port {
+  font: 400 italic 17px/1 var(--font-core);
+  fill: var(--stone-500);
+}
+
+.wire { stroke: var(--stone-400); stroke-width: 1.6; fill: none; }
+.wire.feedback { stroke: var(--moss-500); stroke-dasharray: 5 4; }
+
+.loop-label {
+  font: 400 italic 13px/1 var(--font-core);
+  fill: var(--moss-500);
+  text-anchor: middle;
+}
+
+.chip { fill: var(--slate-50); stroke: var(--slate-200); stroke-width: 1; }
+
+.chip-title {
+  font: 600 15px/1 var(--font-core);
+  fill: var(--slate-600);
+  text-anchor: middle;
+}
+
+.chip-line {
+  font: 400 11px/1 var(--font-mono);
+  fill: var(--stone-500);
+  text-anchor: middle;
+}
+
+/* which parts are lit, per build slide */
+
+section[data-focus] .stack-svg .part { opacity: .13; }
+section[data-focus="all"] .stack-svg .part { opacity: 1; }
+
+section[data-focus="machine"] .stack-svg .p-machine { opacity: 1; }
+
+section[data-focus="doer"] .stack-svg .p-doer,
+section[data-focus="doer"] .stack-svg .p-validator,
+section[data-focus="doer"] .stack-svg .p-loop { opacity: 1; }
+
+section[data-focus="line"] .stack-svg .p-line,
+section[data-focus="line"] .stack-svg .p-io,
+section[data-focus="line"] .stack-svg .p-wire,
+section[data-focus="line"] .stack-svg .p-machine,
+section[data-focus="line"] .stack-svg .p-loop { opacity: 1; }
+
+section[data-focus="orch"] .stack-svg .p-orch,
+section[data-focus="orch"] .stack-svg .p-line { opacity: 1; }
+
+section[data-focus="human"] .stack-svg .p-human,
+section[data-focus="human"] .stack-svg .p-factory { opacity: 1; }
+
+/* ---------- the simple, world-definition diagram ------------------ */
+
+.simple-svg { display: block; width: 100%; max-width: 30em; height: auto; margin: 0.6em 0 0.4em; }
+.simple-svg marker path { fill: var(--stone-400); }
+
+/* ---------- vocabulary list (the words, before they are defined) --- */
+
+.vocab { list-style: none; margin: 0.4em 0 0; padding: 0; }
+
+.vocab li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+  position: relative;
+  padding: 0.5em 0 0.5em 1.4em;
+  font-size: 0.58em;
+  line-height: 1.45;
+  color: var(--stone-800);
+  border-bottom: 1px solid var(--stone-200);
+}
+
+.vocab li:last-child { border-bottom: none; }
+
+.vocab li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.05em;
+  width: 0.55em;
+  height: 2px;
+  background: var(--clay-400);
+}
+
+.vocab strong { font-weight: 600; color: var(--slate-600); }
+.vocab-label { flex: 0 0 12em; }
+.vocab-detail { display: block; margin-top: 0.12em; font-size: 0.8em; color: var(--stone-600); }
+.vocab-definition { display: block; margin-top: 0.08em; }
+.vocab-examples { display: block; margin-top: 0.3em; font: 400 0.78em/1.5 var(--font-mono); color: var(--stone-600); }
+.vocab-examples code { color: var(--slate-600); }
+
+/* ---------- links list -------------------------------------------- */
+
+.links { list-style: none; margin: 0.3em 0 0; padding: 0; }
+
+.links li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+  font-size: 0.56em;
+  padding: 0.48em 0;
+  border-bottom: 1px solid var(--stone-200);
+  color: var(--stone-800);
+}
+
+.links li:last-child { border-bottom: none; }
+.links strong { font-weight: 600; color: var(--slate-600); }
+.why { color: var(--stone-500); font-size: 0.86em; }
+
+/* ---------- demo, dark factory, Q&A ------------------------------- */
+
+section[data-state="demo"] { background: var(--paper-warm); }
+.reveal h2.demo-title { font-size: 2em; }
+
+.demo-start-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 2em;
+  align-items: start;
+}
+.demo-spec-panel {
+  margin-top: 0.2em;
+  border: 2px solid #8a8a8a;
+  background: var(--white);
+  box-shadow: 2px 2px 0 #d9d9d9, -1px -1px 0 #f6f6f6;
+}
+.demo-spec-titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45em 0.65em;
+  background: #000080;
+  color: var(--white);
+  font: 600 0.42em/1 var(--font-mono);
+}
+.demo-spec-controls { letter-spacing: 0.3em; }
+.demo-spec {
+  margin: 0;
+  padding: 1.15em 1.25em;
+  color: #202020;
+  font: 400 0.48em/1.55 var(--font-mono);
+  white-space: pre-wrap;
+}
+
+.demo-repo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1.2em;
+  font-size: 0.58em;
+}
+.demo-repo-qr {
+  display: block;
+  width: 7.2em;
+  padding: 0.22em;
+  border: 1px solid var(--stone-300);
+  background: var(--white);
+}
+.demo-repo-qr img { display: block; width: 100%; height: auto; }
+.demo-repo-copy { display: flex; flex-direction: column; gap: 0.45em; }
+.demo-repo-label { color: var(--slate-600); font-size: 1.2em; font-weight: 600; line-height: 1.2; }
+.demo-repo-url {
+  max-width: 36em;
+  color: var(--stone-600);
+  font: 400 0.68em/1.3 var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.stage-direction {
+  font: 500 0.42em/1 var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clay-600);
+  border: 1px dashed var(--clay-400);
+  border-radius: 3px;
+  padding: 0.9em 1.2em;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 1.8em !important;
+}
+
+section[data-state="tetris"] { background: var(--paper-warm); }
+.tetris-collage { position: relative; height: 15em; margin: 0.35em 0 0; }
+.tetris-card {
+  position: absolute;
+  width: 8em;
+  border: 3px solid var(--paper-warm);
+  box-shadow: 0 0.25em 0.7em rgba(40, 35, 30, 0.26);
+}
+.tetris-one { left: -1%; top: 2.2em; transform: rotate(-9deg); z-index: 2; }
+.tetris-two { left: 17%; top: 0.4em; transform: rotate(5deg); z-index: 4; }
+.tetris-three { left: 37%; top: 3.5em; transform: rotate(-4deg); z-index: 3; }
+.tetris-four { left: 57%; top: 1em; transform: rotate(9deg); z-index: 5; }
+.tetris-five { left: 76%; top: 4em; transform: rotate(-7deg); z-index: 1; }
+
+section[data-state="dark"] { background: var(--stone-900); }
+section[data-state="dark"] h2 { color: var(--paper-warm); }
+section[data-state="dark"] h2 em { color: var(--clay-300); }
+section[data-state="dark"] .gloss { color: var(--stone-300); }
+section[data-state="dark"] .punch { color: var(--paper-warm); }
+section[data-state="dark"] .footnote {
+  color: var(--stone-400);
+  border-left-color: var(--stone-700);
+}
+section[data-state="dark"] .footnote em { color: var(--clay-300); }
+section[data-state="dark"] .cite { color: var(--stone-600); }
+
+section[data-state="dark"] .gloss { max-width: 34em; }
+section[data-state="dark"] .two-contexts { gap: 1.6em; margin: 0.2em 0 0; }
+section[data-state="dark"] .ctx {
+  border-top-color: var(--stone-600);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.9em 1.1em 1em;
+}
+section[data-state="dark"] .ctx-ours { border-top-color: var(--clay-400); }
+section[data-state="dark"] .ctx-head { color: var(--stone-300); }
+section[data-state="dark"] .ctx-ours .ctx-head { color: var(--clay-300); }
+section[data-state="dark"] .ctx-body { color: var(--stone-400); }
+section[data-state="dark"] .punch { margin-top: 0.9em !important; max-width: 26em; }
+section[data-state="dark"].parting .parting-question { font-size: 1.18em; max-width: 30em; }
+section[data-state="dark"] .cite { margin-top: 1.1em; }
+
+/* .cite standing on its own, not nested inside a .footnote */
+.reveal p.cite { font-size: 0.4em; max-width: 46em; margin-top: 1.4em !important; }
+
+.reveal-viewport.qa { background: var(--slate-900); }
+.reveal .slides section[data-state="qa"] {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+.reveal h1.qa { margin: 0 !important; font-size: 3.2em; color: var(--paper-warm); }
+.reveal .slides section[data-state="qa"].parting { flex-direction: column; }
+.reveal .slides section[data-state="qa"].parting h2 {
+  margin: 0 0 0.5em !important;
+  color: var(--stone-300);
+  font-size: 1.45em;
+}
+.reveal .slides section[data-state="qa"].parting h1.qa.parting-question {
+  max-width: 23em;
+}
+.reveal .slides section[data-state="qa"].parting h1.qa.parting-question em { color: var(--clay-300); }
+
+/* ---------- chrome ------------------------------------------------ */
+
+.reveal .progress { color: var(--clay-500); height: 3px; }
+.reveal .controls { color: var(--stone-400); }
+.reveal .slide-number {
+  font: 400 12px/1 var(--font-mono);
+  background: none;
+  color: var(--stone-400);
+}
+
+@media print {
+  .reveal-viewport::before { display: none; }
+}
