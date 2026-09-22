@@ -229,6 +229,22 @@ section[data-state="people"] .course-qr img { display: block; width: 100%; heigh
 /* ---------- cover ------------------------------------------------- */
 
 section[data-state="cover"] h1 { max-width: 12em; }
+.reveal .slides a.slides-qr {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  width: 4.5em;
+  padding: 0.2em;
+  border: 1px solid var(--stone-300);
+  background: var(--white);
+  color: var(--slate-600);
+  text-decoration: none;
+}
+.slides-qr img { display: block; width: 100%; height: auto; }
+.slides-qr span { font: 600 0.34em/1.2 var(--font-mono); }
+.cover-slides-qr { top: 1.3em; right: 0.5em; }
 
 /* ---------- run sheet --------------------------------------------- */
 
@@ -616,6 +632,7 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
   max-width: 23em;
 }
 .reveal .slides section[data-state="qa"].parting h1.qa.parting-question em { color: var(--clay-300); }
+.parting-slides-qr { right: 1em; bottom: 1em; }
 
 /* ---------- chrome ------------------------------------------------ */
 

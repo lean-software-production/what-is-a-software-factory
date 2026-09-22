@@ -247,6 +247,22 @@ section[data-state="people"] .course-qr img { display: block; width: 100%; heigh
 /* ---------- cover ------------------------------------------------- */
 
 section[data-state="cover"] h1 { max-width: 12em; }
+.reveal .slides a.slides-qr {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  width: 4.5em;
+  padding: 0.2em;
+  border: 1px solid var(--stone-300);
+  background: var(--white);
+  color: var(--slate-600);
+  text-decoration: none;
+}
+.slides-qr img { display: block; width: 100%; height: auto; }
+.slides-qr span { font: 600 0.34em/1.2 var(--font-mono); }
+.cover-slides-qr { top: 1.3em; right: 0.5em; }
 
 /* ---------- run sheet --------------------------------------------- */
 
@@ -634,6 +650,7 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
   max-width: 23em;
 }
 .reveal .slides section[data-state="qa"].parting h1.qa.parting-question em { color: var(--clay-300); }
+.parting-slides-qr { right: 1em; bottom: 1em; }
 
 /* ---------- chrome ------------------------------------------------ */
 
@@ -754,6 +771,10 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
   <p class="deck"><strong>Where are you joining us from today?</strong></p>
   <p class="byline">Matt Wynne &amp; Aldric Giacomoni · Lean Software Production<br>
   Tuesday 8 September 2026</p>
+  <a class="slides-qr cover-slides-qr" href="https://lean-software-production.github.io/what-is-a-software-factory/" aria-label="Open these slides">
+    <img src="assets/qr/slides.png" alt="QR code for these slides">
+    <span>These slides</span>
+  </a>
   <aside class="notes">
     <p><strong>This slide is up before we start.</strong> It is the note left on the chairs.
     Anyone who joins late still sees the welcome and the location question.</p>
@@ -933,13 +954,7 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
 <section>
   <h2>What's inside the factory?</h2>
   <ul class="vocab">
-    <li>
-      <span class="vocab-label"><strong>Machine</strong><span class="vocab-detail"><strong>Model</strong> + <strong>harness</strong></span></span>
-      <span class="why"><strong>the fundamental primitive of a factory</strong>
-        <span class="vocab-definition">an agent doing one job, in "headless" mode</span>
-        <span class="vocab-examples"><code>pi -p "…"</code><br><code>claude -p "…"</code><br><code>codex exec "…"</code></span>
-      </span>
-    </li>
+    <li><span class="vocab-label"><strong>Machine</strong></span> <span class="why"><strong>model</strong> + <strong>harness</strong></span></li>
     <li class="fragment"><span class="vocab-label"><strong>Doer</strong> &amp; <strong>validator</strong></span> <span class="why">two useful machine archetypes</span></li>
     <li class="fragment"><span class="vocab-label"><strong>Assembly line</strong></span> <span class="why">machines wired together for a particular purpose</span></li>
     <li class="fragment"><span class="vocab-label"><strong>Orchestrator</strong></span> <span class="why">runs the assembly lines and watches over them</span></li>
@@ -947,9 +962,7 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
   </ul>
   <aside class="notes">
     <p><strong>ALDRIC.</strong> Thirty seconds. Read the list, do not explain it.</p>
-    <p>A machine is the fundamental primitive of a factory. The commands underneath are
-    concrete examples of the harness running a single job non-interactively:
-    <code>pi -p</code>, <code>claude -p</code>, and <code>codex exec</code>.</p>
+    <p>A machine is a model running in a harness. Leave the detail for the next slide.</p>
     <p>This exists so nobody sits through the next six slides wondering how long this goes on
     for. Matt's note: if you drop straight into "a machine is...", they have no idea where
     they are in the talk.</p>
@@ -1275,6 +1288,10 @@ Make it look great, in a retro 1980s gaming style</pre>
 <section data-state="qa" class="parting">
   <h2>Parting thoughts:</h2>
   <h1 class="qa parting-question">Does a Software Factory have to be a <em>Dark Factory?</em></h1>
+  <a class="slides-qr parting-slides-qr" href="https://lean-software-production.github.io/what-is-a-software-factory/" aria-label="Open these slides">
+    <img src="assets/qr/slides.png" alt="QR code for these slides">
+    <span>These slides</span>
+  </a>
   <aside class="notes">
     <p><strong>ALDRIC leads, MATT brings the centaurs.</strong> Two minutes, and this is the
     last thing they hear. This is our spicy take and we are allowed to be a bit political.</p>
