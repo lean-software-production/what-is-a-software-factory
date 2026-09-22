@@ -247,22 +247,6 @@ section[data-state="people"] .course-qr img { display: block; width: 100%; heigh
 /* ---------- cover ------------------------------------------------- */
 
 section[data-state="cover"] h1 { max-width: 12em; }
-.reveal .slides a.slides-qr {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3em;
-  width: 4.5em;
-  padding: 0.2em;
-  border: 1px solid var(--stone-300);
-  background: var(--white);
-  color: var(--slate-600);
-  text-decoration: none;
-}
-.slides-qr img { display: block; width: 100%; height: auto; }
-.slides-qr span { font: 600 0.34em/1.2 var(--font-mono); }
-.cover-slides-qr { top: 1.3em; right: 0.5em; }
 
 /* ---------- run sheet --------------------------------------------- */
 
@@ -650,7 +634,29 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
   max-width: 23em;
 }
 .reveal .slides section[data-state="qa"].parting h1.qa.parting-question em { color: var(--clay-300); }
-.parting-slides-qr { right: 1em; bottom: 1em; }
+
+.reveal .slides section.slides-link {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+.reveal .slides section.slides-link h1 { margin: 0 0 0.45em !important; }
+.reveal .slides a.final-slides-qr {
+  display: block;
+  width: 8em;
+  padding: 0.3em;
+  border: 1px solid var(--stone-300);
+  background: var(--white);
+}
+.final-slides-qr img { display: block; width: 100%; height: auto; }
+.reveal .slides .slides-url {
+  margin-top: 0.8em;
+  color: var(--slate-600);
+  font: 500 0.42em/1.4 var(--font-mono);
+}
 
 /* ---------- chrome ------------------------------------------------ */
 
@@ -771,10 +777,6 @@ section[data-state="dark"] .cite { margin-top: 1.1em; }
   <p class="deck"><strong>Where are you joining us from today?</strong></p>
   <p class="byline">Matt Wynne &amp; Aldric Giacomoni · Lean Software Production<br>
   Tuesday 8 September 2026</p>
-  <a class="slides-qr cover-slides-qr" href="https://lean-software-production.github.io/what-is-a-software-factory/" aria-label="Open these slides">
-    <img src="assets/qr/slides.png" alt="QR code for these slides">
-    <span>These slides</span>
-  </a>
   <aside class="notes">
     <p><strong>This slide is up before we start.</strong> It is the note left on the chairs.
     Anyone who joins late still sees the welcome and the location question.</p>
@@ -1288,10 +1290,6 @@ Make it look great, in a retro 1980s gaming style</pre>
 <section data-state="qa" class="parting">
   <h2>Parting thoughts:</h2>
   <h1 class="qa parting-question">Does a Software Factory have to be a <em>Dark Factory?</em></h1>
-  <a class="slides-qr parting-slides-qr" href="https://lean-software-production.github.io/what-is-a-software-factory/" aria-label="Open these slides">
-    <img src="assets/qr/slides.png" alt="QR code for these slides">
-    <span>These slides</span>
-  </a>
   <aside class="notes">
     <p><strong>ALDRIC leads, MATT brings the centaurs.</strong> Two minutes, and this is the
     last thing they hear. This is our spicy take and we are allowed to be a bit political.</p>
@@ -1308,6 +1306,14 @@ Make it look great, in a retro 1980s gaming style</pre>
     the response to it is visibility and control rather than reassurance.</p>
     <p>Then thank them and stop. No second pitch.</p>
   </aside>
+</section>
+
+<section class="slides-link">
+  <h1>These slides</h1>
+  <a class="final-slides-qr" href="https://lean-software-production.github.io/what-is-a-software-factory/" aria-label="Open these slides">
+    <img src="assets/qr/slides.png" alt="QR code for these slides">
+  </a>
+  <a class="slides-url" href="https://lean-software-production.github.io/what-is-a-software-factory/">lean-software-production.github.io/<br>what-is-a-software-factory</a>
 </section>
 
 </div>
